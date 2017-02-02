@@ -1,0 +1,44 @@
+#!/bin/sh
+cd /home/antergos/Dokumente
+
+response=$(zenity --width=300 --height=300 --list \
+--title="Choose Version" \
+--column="Name" --column="Directory" \
+Own  "AimTux own/" \
+FaceIt "AimTuxFaceIt/" \
+Legacy "AimTux/")
+
+if [ $? -eq 0 ]
+	then          
+		case $response in
+			Own) cd "AimTux own/" ;;
+			FaceIt) cd "AimTuxFaceIt/" ;;
+			Legacy) cd "AimTux/" ;;
+		esac
+
+	response=$(zenity --width=300 --height=300 --list \
+		--title="Choose Action" \
+		--column="Action" \
+		Load \
+		Reload \
+		Unload \
+		Update \
+		Build \
+		"Open Terminal" )
+
+	if [ $? -eq 0 ]
+		then              
+			case $response in
+				Load) ./load ;;
+				Reload) ./rload ;;
+				Unload) ./uload ;;
+				Update) ./update ;;
+				Build) ./make ;;
+				"Open Terminal") gnome-terminal ;;
+			esac
+		else
+			echo "Canceled"
+	fi
+else
+	echo "Canceled"
+fi
