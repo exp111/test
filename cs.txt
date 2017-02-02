@@ -1,0 +1,27 @@
+atgui.cpp
+
+Draw::ImDrawText(ImVec2(4.f, 4.f), ImColor(255, 20, 147, 255), "Hey Exp ;)", NULL, 0.0f, NULL, ImFontFlags_Shadow);
+
+
+faceit branch
+
+atgui.cpp
+
+Draw::ImDrawText(ImVec2(4.f, 4.f), ImColor(255, 215, 0, 255), "Hey Exp ;) #faceit", NULL, 0.0f, NULL, ImFontFlags_Shadow);
+
+
+
+settings
+	//own
+	settings["pNazi"]["enabled"] = Settings::pNazi::enabled;
+	settings["pNazi"]["enemies"] = Settings::pNazi::enemies;
+	settings["pNazi"]["allies"] = Settings::pNazi::allies;
+	settings["pNazi"]["legit"] = Settings::pNazi::legit;
+	settings["pNazi"]["crosshair"] = Settings::pNazi::crosshair;
+
+//own
+	GetVal(settings["pNazi"]["enabled"], &Settings::pNazi::enabled);
+	GetVal(settings["pNazi"]["enemies"], &Settings::pNazi::enemies);
+	GetVal(settings["pNazi"]["allies"], &Settings::pNazi::allies);
+	GetVal(settings["pNazi"]["legit"], &Settings::pNazi::legit);
+	GetVal(settings["pNazi"]["crosshair"], &Settings::pNazi::crosshair);
